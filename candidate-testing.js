@@ -62,6 +62,7 @@ function runProgram(){
   console.log(`Hello Candidate ${candidateName}`)
   askQuestion();
   gradeQuiz(this.candidateAnswers);
+  return gradeQuiz;
 }
 
 // Don't write any code below this line //
