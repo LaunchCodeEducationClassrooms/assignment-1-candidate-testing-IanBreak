@@ -3,11 +3,11 @@ const input = require('readline-sync');
 // TODO 2: modify your quiz app to ask 5 questions //
 
 // TODO 1.1a: Define candidateName // 
-let candidateName = [];
+let candidateName = '';
 // TODO 1.2a: Define question, correctAnswer, and candidateAnswer //
 let question = 'What was the first American woman in Space? ';
 let correctAnswer = 'Sally Ride';
-let candidateAnswer= [];
+let candidateAnswer= '';
 let questions = ["Who was the first American woman in Space? ", "True or False: 5000 meters == 5 kilometers?", "(5+3)/2*10 = ? ", "Given the array [8, 'orbit', 'Trajectory', 45], what is the entry index at 2? ", "What is the minimum crew size for the ISS? "] ;
 let correctAnswers = ['Sally Ride', 'true', '40', 'Trajectory', '3'];
 let candidateAnswers = [];
@@ -21,10 +21,10 @@ function askForName(){
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
 function askQuestion(){
 for (let i = 0; i < questions.length; i++){
-    candidateAnswers[i] = input.question(`[${i+1}] ${questions[i]}`);
+    candidateAnswers[i] = input.question(questions[i]);
     console.log(gradeQuiz(candidateAnswers));
-    console.log(`\n`)
   }
+  console.clear();
 }
 // candidateAnswers = input.question(${question})
 
@@ -36,14 +36,14 @@ function gradeQuiz(candidateAnswers) {
     console.log(`Your Answer: ${candidateAnswers[i]}, \nCorrect Answer ${correctAnswers[i]}`)
     }
  }
- for (i=0; i < candidateAnswers.length; i++){
-   if (candidateAnswers[i] === correctAnswers[i]){
-     console.log(`That is correct`)
-   }
-   else{
-     console.log(`That is incorrect`)
-   }
- }
+ //for (i=0; i < candidateAnswers.length; i++){
+  // if (candidateAnswers[i] === correctAnswers[i]){
+    // console.log(`That is correct`)
+   //}
+   //else{
+   //  console.log(`That is incorrect`)
+  // }
+// }
 
   let grade = 0;
   let finalGrade = 0;
@@ -51,7 +51,7 @@ function gradeQuiz(candidateAnswers) {
   for (i=0; i < candidateAnswers.length; i ++){
     if(candidateAnswers[i] === correctAnswers[i])
     grade++;
-    finalGrade = (`${grade/5} %`)
+    finalGrade = (`${grade/5 * 100} %`)
     console.log(`Final Grade is: ${finalGrade}. ${grade} out of 5 answers correct!`)
   }
   return grade;
